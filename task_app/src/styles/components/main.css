@@ -1,0 +1,22 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600&family=Zen+Antique+Soft&display=swap');
+
+@tailwind base;
+@tailwind components;
+
+.exsample
+{
+  @apply text-2xl text-center font-bold text-red-500
+}
+
+.wrapper
+{
+  @apply w-full h-full
+}
+
+.detail
+{
+  @apply bg-blue-200 my-2 w-2/5
+}
+
+@tailwind utilities;

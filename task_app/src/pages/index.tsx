@@ -1,9 +1,8 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from '@next/font/google'
-import styles from '@/styles/Home.module.css'
+import Mydetails from './components/Mydetails'
+import TypewriterCompornent from './components/Typewriter'
 
-const inter = Inter({ subsets: ['latin'] })
+
 
 export default function Home() {
   return (
@@ -14,111 +13,59 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.description}>
-          <p className='text-4xl'>test strings</p>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.tsx</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
-              />
-            </a>
-          </div>
+      <main className='w-screen h-screen bg-slate-200 font-Lora font-custom'>
+      <div className='wrapper font-bold'>
+        <div className='text-5xl relative h-full'>
+        <TypewriterCompornent />
         </div>
+      </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-          <div className={styles.thirteen}>
-            <Image
-              src="/thirteen.svg"
-              alt="13"
-              width={40}
-              height={31}
-              priority
-            />
-          </div>
-        </div>
+      <div className='wrapper flex flex-wrap justify-center'>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
+        <Mydetails title={"詳細情報"}>
+          <p>生年月日: 1997-08-06</p>
+          <p>年齢: 25</p>
+          <p>血液型: B型</p>
+          <p>出生地: 長野県</p>
+          <p>居住地: 京都府京丹後市峰山町</p>
+          <p>卒業学校: 静岡県立田方農業高等学校</p>
+          <p>身長: 172cm</p>
+          <p>獅子座、丑年</p>
+        </Mydetails>
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
+        {/* <Mydetails title={"好きなもの・趣味"}>
+          <p>本を読むことが趣味です。ジャンルは様々ですが、主に心理学、恋愛小説、ノンフィクション、戦争関係が多いです。</p>
+          <p>最近読んだ本の中で非常に面白かったのは「夜と霧」という強制収用のお話です</p>
+          <p>紅茶を茶葉で買い、家で淹れるのが好きです</p>
+          <p>実家では猫を飼っていました。猫派です</p>
+          <p>次はハリネズミをお迎えしたいと思ってます</p>
+          <p>ゲームもします。基本はFPSをやります。</p>
+          <p>しかし積みゲーがたくさんあって勉強とどのように並行しようか考え中です</p>
+        </Mydetails>
 
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
+        <Mydetails title={"経歴"}>
+          <p>静岡県立田方農業高等学校を卒業後</p>
+          <p>静岡県東部でフランチャイズ展開している企業の飲食店に就職</p>
+          <p>料理全般できるようになりました。</p>
+          <p>その後、Appleの正規販売代理店で販売員として従事</p>
+          <p>コロナの影響により、解雇</p>
+          <p>そして現在交際中の女性と出会い、京都に移住することを決断</p>
+        </Mydetails>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2 className={inter.className}>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p className={inter.className}>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
+        <Mydetails title={"苦手なもの"}>
+          <p>海亀のスープ（本当に苦手です）</p>
+          <p>オリーブの実（この世の食べ物ではありません）</p>
+          <p>貝類</p>
+        </Mydetails> */}
+
+        </div>{/* container end */}
+
+      <div className='container'>
+        {/* このボタンを押すと、Thxメッセージを出して、自動でタブを閉じる */}
+        <button>exit</button>
+      </div>
+
+    </main>
     </>
   )
 }

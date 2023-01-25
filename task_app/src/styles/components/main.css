@@ -16,7 +16,17 @@
 
 .detail
 {
-  @apply bg-blue-200 my-2 w-2/5
+  @apply bg-blue-200 my-2 w-full h-full text-center
+}
+
+.modal
+{
+  @apply fixed w-full h-full bg-yellow-200 z-50 top-0 left-0
+}
+
+.modalInner
+{
+  @apply relative w-4/5 h-4/5 bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
 }
 
 @tailwind utilities;

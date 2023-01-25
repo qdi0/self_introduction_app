@@ -1,27 +1,23 @@
-
-
-import React from "react";
+import React, { Children } from "react";
 
 type Content = {
   title : string,
-  content? : {
-    test: string,
-  },
-  children: React.ReactElement |React.ReactElement[]
+  children: React.ReactElement | React.ReactElement[]
 }
 
 const Mydetails = (props: Content) =>{
-  const content = props.content
+
+  const {title,children} = props
+
   return(
-    <>
-      <div className='detail' onClick={()=>{ console.log("success")}}>
-        <h2 className='font-bold text-3xl'>{props.title}</h2>
-        <p>{content? content.test:""}</p>
-        <div className="detailInner">
-          {props.children}
+      <div className='detail flex justify-center items-center'>
+        <div className="detailWrapper">
+          <h2 className='font-bold text-6xl mb-5'>{ title }</h2>
+          <div className="detailInner text-2xl text-left">
+            { children }
+          </div>
         </div>
       </div>
-    </>
   )
 }
 

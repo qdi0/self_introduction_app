@@ -1,9 +1,6 @@
 import Head from 'next/head'
-import Mydetails from './components/Mydetails'
 import TypewriterCompornent from './components/Typewriter'
 import Modal from './components/Modal'
-import Timestamp from './components/Timestamp'
-
 import Image from 'next/image'
 import Myphoto from 'public/myphoto.jpg'
 import ToggleButton from './components/Togglebutton'
@@ -23,26 +20,12 @@ export default function Home() {
       <main className='relative w-screen h-screen bg-slate-200 font-Lora font-custom'>
 
         <div className='custom_wrapper font-bold'>
-          <Timestamp/>
           <div className='text-5xl relative h-full'>
             <TypewriterCompornent />
           </div>
         </div>
 
         <div className='custom_wrapper flex flex-wrap justify-center'>
-
-{/*
-TODO
-
-Create button & UI
-
-after
-
-create logics of modalwindow & closeModalwindow func.
-
-
- */}
-
 
           <div className="w-full bg-red-900 text-center">
             <Image src={Myphoto} alt={''}/>
@@ -55,6 +38,19 @@ create logics of modalwindow & closeModalwindow func.
             <ToggleButton label={"苦手なもの"} data={'dislike'} />
 
           </div>
+
+          {/*
+          TODO
+
+          Change props key
+          label is change "title"
+
+          after
+          make object same props key
+
+          my task is ...
+          SSR func ,API
+           */}
 
           <Modal title={"詳細情報"} data={"detail"}>
               <p>生年月日: 1997-08-06</p>

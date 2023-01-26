@@ -4,13 +4,12 @@ import TypewriterCompornent from './components/Typewriter'
 import Modal from './components/Modal'
 import Timestamp from './components/Timestamp'
 
+import Image from 'next/image'
+import Myphoto from 'public/myphoto.jpg'
+import ToggleButton from './components/Togglebutton'
 
 
 export default function Home() {
-
-  const test = {
-
-  }
 
   return (
     <>
@@ -23,14 +22,14 @@ export default function Home() {
       </Head>
       <main className='relative w-screen h-screen bg-slate-200 font-Lora font-custom'>
 
-        <div className='wrapper font-bold'>
+        <div className='custom_wrapper font-bold'>
           <Timestamp/>
           <div className='text-5xl relative h-full'>
             <TypewriterCompornent />
           </div>
         </div>
 
-        <div className='wrapper flex flex-wrap justify-center'>
+        <div className='custom_wrapper flex flex-wrap justify-center'>
 
 {/*
 TODO
@@ -44,20 +43,20 @@ create logics of modalwindow & closeModalwindow func.
 
  */}
 
-          <div className="button">
-            <p className='text-4xl'>詳細情報</p>
+
+          <div className="w-full bg-red-900 text-center">
+            <Image src={Myphoto} alt={''}/>
           </div>
-          <div className="button">
-            <p className='text-4xl'>好きなもの・趣味</p>
-          </div>
-          <div className="button">
-            <p className='text-4xl'>経歴</p>
-          </div>
-          <div className="button">
-            <p className='text-4xl'>苦手なもの</p>
+          <div className="w-full h-full flex gap-4 justify-center">
+
+            <ToggleButton label={"詳細情報"} data={'detail'} />
+            <ToggleButton label={"好きなもの・趣味"} data={'like'} />
+            <ToggleButton label={"経歴"} data={'carrer'} />
+            <ToggleButton label={"苦手なもの"} data={'dislike'} />
+
           </div>
 
-          {/* <Modal title={"詳細"}>
+          <Modal title={"詳細情報"} data={"detail"}>
               <p>生年月日: 1997-08-06</p>
               <p>年齢: 25</p>
               <p>血液型: B型</p>
@@ -66,24 +65,9 @@ create logics of modalwindow & closeModalwindow func.
               <p>卒業学校: 静岡県立田方農業高等学校</p>
               <p>身長: 172cm</p>
               <p>獅子座、丑年</p>
-          </Modal> */}
+          </Modal>
 
-          <div className="">
-
-            <Mydetails title={"詳細情報"}>
-              <p>生年月日: 1997-08-06</p>
-              <p>年齢: 25</p>
-              <p>血液型: B型</p>
-              <p>出生地: 長野県</p>
-              <p>居住地: 京都府京丹後市峰山町</p>
-              <p>卒業学校: 静岡県立田方農業高等学校</p>
-              <p>身長: 172cm</p>
-              <p>獅子座、丑年</p>
-            </Mydetails>
-
-          </div>
-
-          <Mydetails title={"好きなもの・趣味"}>
+            <Modal title={'好きなもの・趣味'} data={"like"}>
             <p>本を読むことが趣味です。ジャンルは様々ですが、主に心理学、恋愛小説、ノンフィクション、戦争関係が多いです。</p>
             <p>最近読んだ本の中で非常に面白かったのは「夜と霧」という強制収用のお話です</p>
             <p>紅茶を茶葉で買い、家で淹れるのが好きです</p>
@@ -91,29 +75,24 @@ create logics of modalwindow & closeModalwindow func.
             <p>次はハリネズミをお迎えしたいと思ってます</p>
             <p>ゲームもします。基本はFPSをやります。</p>
             <p>しかし積みゲーがたくさんあって勉強とどのように並行しようか考え中です</p>
-          </Mydetails>
+            </Modal>
 
-          <Mydetails title={"経歴"}>
+            <Modal title={"経歴"} data={"carrer"}>
             <p>静岡県立田方農業高等学校を卒業後</p>
             <p>静岡県東部でフランチャイズ展開している企業の飲食店に就職</p>
             <p>料理全般できるようになりました。</p>
             <p>その後、Appleの正規販売代理店で販売員として従事</p>
             <p>コロナの影響により、解雇</p>
             <p>そして現在交際中の女性と出会い、京都に移住することを決断</p>
-          </Mydetails>
+            </Modal>
 
-          <Mydetails title={"苦手なもの"}>
+            <Modal title={"苦手なもの"} data={"dislike"}>
             <p>海亀のスープ（本当に苦手です）</p>
             <p>オリーブの実（この世の食べ物ではありません）</p>
             <p>貝類</p>
-          </Mydetails>
+            </Modal>
 
           </div>{/* container end */}
-
-        <div className='container'>
-          {/* このボタンを押すと、Thxメッセージを出して、自動でタブを閉じる */}
-          <button>exit</button>
-        </div>
 
     </main>
 

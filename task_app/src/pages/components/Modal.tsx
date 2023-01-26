@@ -1,20 +1,22 @@
 
-import { ReactNode } from "react";
 import Mydetails from "./Mydetails";
+import { ModalReverse } from "./ModalFunc";
 
 type Details = {
   title:string,
+  data: string
   children: React.ReactElement | React.ReactElement[]
 }
 
 
 const Modal = ( props:Details ) => {
 
-  const { title,children } = props
+  const { title,data,children } = props
+  const ModalClose = ModalReverse
 
   return(
-    <div className="modal">
-      <div className="modalInner">
+    <div className={`${data} custom_modal`} onClick={()=>{ModalClose(data)}}>
+      <div className="custom_modalInner">
         <Mydetails title={title}>
           {children}
         </Mydetails>

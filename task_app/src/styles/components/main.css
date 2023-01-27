@@ -11,22 +11,22 @@
 
 .custom_wrapper
 {
-  @apply w-full h-full
+  @apply w-full h-screen
 }
 
 .custom_detail
 {
-  @apply bg-blue-200 my-2 w-full h-full text-center
+  @apply bg-blue-200 my-2 w-full h-full text-center rounded-lg
 }
 
 .custom_modal
 {
-  @apply fixed h-full bg-yellow-200 z-50 top-0 left-0 opacity-0 w-0
+  @apply fixed h-full bg-slate-400 top-0 left-0 bg-opacity-70 w-full opacity-0 invisible
 }
 
 .custom_modalInner
 {
-  @apply relative w-4/5 h-3/5 bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+  @apply relative w-4/5 h-3/5 bg-white top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg
 }
 
 .custom_button

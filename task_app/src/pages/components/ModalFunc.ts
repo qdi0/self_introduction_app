@@ -16,8 +16,7 @@ export const ModalPlay = ( props: tagerName ) =>{
   const target = `.${props}`
 
   const afterCss = {
-    opacity: 1,
-    width: "100vw"
+    autoAlpha: 1
   }
 
   test(target,afterCss).play()
@@ -31,8 +30,7 @@ export const ModalReverse = (props: tagerName) =>{
   const target = `.${props}`
 
   const afterCss = {
-    opacity: 0,
-    width: 0
+    autoAlpha: 0
   }
 
   test(target,afterCss).play()

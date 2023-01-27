@@ -13,7 +13,7 @@ const Mydetails = (props: Content) =>{
       <div className='custom_detail flex justify-center items-center'>
         <div className="detailWrapper">
           <h2 className='font-bold text-6xl mb-5'>{ title }</h2>
-          <div className="detailInner text-2xl text-left">
+          <div className="w-4/5 m-auto text-2xl text-left">
             { children }
           </div>
         </div>

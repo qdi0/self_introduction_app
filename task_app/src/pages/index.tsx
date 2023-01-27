@@ -5,8 +5,16 @@ import Image from 'next/image'
 import Myphoto from 'public/myphoto.jpg'
 import ToggleButton from './components/Togglebutton'
 
+import { GetServerSideProps } from 'next'
 
-export default function Home() {
+type MessageProps = {
+  message: string
+}
+
+
+export default function Home( props: MessageProps) {
+
+  const { message } = props
 
   return (
     <>
@@ -25,12 +33,12 @@ export default function Home() {
           </div>
         </div>
 
-        <div className='custom_wrapper flex flex-wrap justify-center'>
+        <div className='custom_wrapper flex flex-wrap justify-center bg-slate-200'>
 
-          <div className="w-full bg-red-900 text-center">
+          <div className="w-full flex justify-center">
             <Image src={Myphoto} alt={''}/>
           </div>
-          <div className="w-full h-full flex gap-4 justify-center">
+          <div className="w-full flex gap-4 justify-center">
 
             <ToggleButton label={"詳細情報"} data={'detail'} />
             <ToggleButton label={"好きなもの・趣味"} data={'like'} />
@@ -39,6 +47,7 @@ export default function Home() {
 
           </div>
 
+            <p>{message}</p>
           {/*
           TODO
 
@@ -94,4 +103,16 @@ export default function Home() {
 
     </>
   )
+}
+
+
+export const getServerSideProps: GetServerSideProps<MessageProps> =async (context) => {
+  const timestamp = new Date().toLocaleString()
+  const message = `このページは${timestamp}に製作されました。`
+
+  return{
+    props:{
+      message
+    }
+  }
 }

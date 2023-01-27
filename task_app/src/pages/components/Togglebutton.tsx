@@ -13,7 +13,7 @@ const ToggleButton = ( props: ButtonData ) =>{
   const toggleAnimation = ModalPlay
 
   return(
-    <div className={`${baseclass}`} data-class={`.${data}`} onClick={(e)=>{toggleAnimation(data)}}>
+    <div className={`${baseclass} h-20`} data-class={`.${data}`} onClick={(e)=>{toggleAnimation(data)}}>
       <p className='text-4xl'>{label}</p>
     </div>
   )

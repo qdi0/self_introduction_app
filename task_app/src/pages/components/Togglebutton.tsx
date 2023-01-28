@@ -3,18 +3,18 @@ import {ModalPlay} from "./ModalFunc"
 
 type ButtonData = {
   data: string,
-  label: string
+  title: string
 }
 
 const ToggleButton = ( props: ButtonData ) =>{
 
-  const { data,label } = props
+  const { data,title } = props
   const baseclass = "custom_button"
-  const toggleAnimation = ModalPlay
+  const modalPlay = ModalPlay
 
   return(
-    <div className={`${baseclass} h-20`} data-class={`.${data}`} onClick={(e)=>{toggleAnimation(data)}}>
-      <p className='text-4xl'>{label}</p>
+    <div className={`${baseclass} h-20`} data-class={`.${data}`} onClick={(e)=>{modalPlay(data)}}>
+      <p className='text-4xl'>{title}</p>
     </div>
   )
 }

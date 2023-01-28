@@ -2,19 +2,35 @@ import Head from 'next/head'
 import TypewriterCompornent from './components/Typewriter'
 import Modal from './components/Modal'
 import Image from 'next/image'
-import Myphoto from 'public/myphoto.jpg'
+import Myphoto from 'public/my.jpg'
 import ToggleButton from './components/Togglebutton'
+import { useEffect,useState } from 'react'
 
-import { GetServerSideProps } from 'next'
+import { GetServerSideProps,GetStaticProps } from 'next'
 
 type MessageProps = {
-  message: string
+  message: string,
 }
 
 
 export default function Home( props: MessageProps) {
 
+  const [advice,setAdvice] = useState('')
+  const apiUrl = "https://api.adviceslip.com/advice"
+
+  // API fetch
+  useEffect(()=>{
+    fetch(apiUrl)
+    .then((res)=>{
+      return res.json()
+    })
+    .then((data)=>{
+      setAdvice(data.slip.advice)
+    })
+  },[])
+
   const { message } = props
+
 
   return (
     <>
@@ -25,6 +41,8 @@ export default function Home( props: MessageProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
+
       <main className='relative w-screen h-screen bg-slate-200 font-Lora font-custom'>
 
         <div className='custom_wrapper font-bold'>
@@ -35,31 +53,23 @@ export default function Home( props: MessageProps) {
 
         <div className='custom_wrapper flex flex-wrap justify-center bg-slate-200'>
 
-          <div className="w-full flex justify-center">
-            <Image src={Myphoto} alt={''}/>
+          <div className="test w-full flex justify-center">
+            <Image src={Myphoto} alt={''} width={"700"}/>
           </div>
           <div className="w-full flex gap-4 justify-center">
 
-            <ToggleButton label={"詳細情報"} data={'detail'} />
-            <ToggleButton label={"好きなもの・趣味"} data={'like'} />
-            <ToggleButton label={"経歴"} data={'carrer'} />
-            <ToggleButton label={"苦手なもの"} data={'dislike'} />
+            <ToggleButton title={"詳細情報"} data={'detail'} />
+            <ToggleButton title={"好きなもの・趣味"} data={'like'} />
+            <ToggleButton title={"経歴"} data={'career'} />
+            <ToggleButton title={"苦手なもの"} data={'dislike'} />
 
           </div>
 
-            <p>{message}</p>
-          {/*
-          TODO
-
-          Change props key
-          label is change "title"
-
-          after
-          make object same props key
-
-          my task is ...
-          SSR func ,API
-           */}
+            <div className="">
+              <p>{message}</p>
+              <p>今日のアドバイスはこちら<span className='text-red-700'>{advice}</span></p>
+              <p>from Advice Slip JSON API</p>
+            </div>
 
           <Modal title={"詳細情報"} data={"detail"}>
               <p>生年月日: 1997-08-06</p>
@@ -77,12 +87,12 @@ export default function Home( props: MessageProps) {
             <p>最近読んだ本の中で非常に面白かったのは「夜と霧」という強制収用のお話です</p>
             <p>紅茶を茶葉で買い、家で淹れるのが好きです</p>
             <p>実家では猫を飼っていました。猫派です</p>
-            <p>次はハリネズミをお迎えしたいと思ってます</p>
             <p>ゲームもします。基本はFPSをやります。</p>
-            <p>しかし積みゲーがたくさんあって勉強とどのように並行しようか考え中です</p>
+            <p>写真は一眼レフでひまわり畑を撮りに行った時のものです</p>
+            <p>撮影地は静岡県南伊豆町渚の「日野のひまわり畑」です</p>
             </Modal>
 
-            <Modal title={"経歴"} data={"carrer"}>
+            <Modal title={"経歴"} data={"career"}>
             <p>静岡県立田方農業高等学校を卒業後</p>
             <p>静岡県東部でフランチャイズ展開している企業の飲食店に就職</p>
             <p>料理全般できるようになりました。</p>
@@ -93,8 +103,8 @@ export default function Home( props: MessageProps) {
 
             <Modal title={"苦手なもの"} data={"dislike"}>
             <p>海亀のスープ（本当に苦手です）</p>
-            <p>オリーブの実（この世の食べ物ではありません）</p>
-            <p>貝類</p>
+            <p>オリーブの実</p>
+            <p>貝類,甲殻類</p>
             </Modal>
 
           </div>{/* container end */}
@@ -110,9 +120,13 @@ export const getServerSideProps: GetServerSideProps<MessageProps> =async (contex
   const timestamp = new Date().toLocaleString()
   const message = `このページは${timestamp}に製作されました。`
 
+    // const result = await traslater.translateText(advice,null,"ja")
+    // console.log(result);
+
+
   return{
     props:{
-      message
+      message,
     }
   }
 }

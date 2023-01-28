@@ -68,7 +68,7 @@ export default function Home( props: MessageProps) {
             <div className="">
               <p>{message}</p>
               <p>今日のアドバイスはこちら<span className='text-red-700'>{advice}</span></p>
-              <p>from Advice Slip JSON API</p>
+              <a href='https://api.adviceslip.com/#top' target="_blank">from Advice Slip JSON API</a>
             </div>
 
           <Modal title={"詳細情報"} data={"detail"}>
